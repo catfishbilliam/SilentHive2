@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuzzData - Bee Colony Collapse Disorder Visualization</title>
+
+    <!-- Link to Custom Stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Inter:ital,opsz,wght@0,14..32,700;1,14..32,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="customLoadingScreen" style="
+        display: flex; 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-image: url('./assets/honeycomb-forming-1800x1202.jpg'); 
+        background-size: cover; 
+        align-items: center; 
+        justify-content: center; 
+        color: black; 
+        font-size: 30px;
+        z-index: 100;">
+        <div id="loading-text-container">
+            <h1>BuzzData</h1>
+            <p>BUZZING THE DATA IN... WE'LL BE SWARMING SOON!</p>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <!-- Canvas for the Babylon.js visualization -->
+        <canvas id="renderCanvas"></canvas>
+        
+        <div id="year-selector" class="dropdown-container">
+            <div class="header">
+                <h2>Select State & Year</h2>
+                <span class="caret">▼</span>
+            </div>
+            <div class="info-content">
+                <label for="year-select">Year</label>
+                <select id="year-select">
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+
+                <label for="state-dropdown">State</label>
+                <select id="state-dropdown">
+                    <option value="">Select a State</option>
+                    <!-- State options will be dynamically populated -->
+                </select>
+            </div>
+        </div>
+
+        <div id="info-wrapper">
+            <!-- Title Info Container -->
+            <div id="title-info-container" class="dropdown-container">
+                <div class="header">
+                    <h1 class="title">BuzzData</h1>
+                    <span class="caret">▼</span>
+                </div>
+                <div class="info-content">
+                    <p>In the winter of 2006-2007, beekeepers observed significant hive losses ranging from 30 to 90 percent. In around half of the impacted colonies, there was a sudden disappearance of worker bees, with only a few dead bees found near the hive. Despite this, the colonies still contained the queen, young bees (brood), and a plentiful supply of honey and pollen reserves.</p>
+
+                    <p>Colony Collapse Disorder (CCD) refers to the situation where most worker bees in a colony vanish despite adequate resources, leaving only the queen and a small group of nurse bees to care for the remaining brood and the queen herself. The U.S. Department of Agriculture (USDA) has taken the lead on the federal response to CCD, monitoring its progression through APHIS (United States Environmental Protection Agency, 2018).</p>
+                    
+                    <a href="https://www.ars.usda.gov/oc/br/ccd/index/" target="_blank">Learn More</a>
+
+                    <p class="citation">United States Environmental Protection Agency. (2018, April 26). Colony collapse disorder | US EPA. US EPA. <a href="https://www.epa.gov/pollinator-protection/colony-collapse-disorder" target="_blank">https://www.epa.gov/pollinator-protection/colony-collapse-disorder</a></p>
+                </div>
+            </div>
+
+            <!-- State Info Container -->
+            <div id="state-info-container" class="dropdown-container">
+                <div class="header">
+                    <h2 class="title">Data Overview</h2>
+                    <span class="caret">▼</span>
+                </div>
+                <div class="info-content">
+                    <p>State: <span id="state-name">N/A</span></p>
+                    <p>Year Selected: <span id="year-selected">2019</span></p>
+                    <p>Total Loss Value: <span id="total-loss">N/A</span></p>
+                    <p># of Registered Colonies: <span id="registered-colonies">N/A</span></p>
+                    <p>Percentage Loss: <span id="percentage-loss">N/A</span></p>
+                </div>
+            </div>
+
+            <!-- Disappeared Bees Container -->
+            <div id="disappeared-bees-container" class="dropdown-container">
+                <div class="header">
+                    <h2 class="title">No. of Disappeared Bees in Selected Year</h2>
+                    <span class="caret">▼</span>
+                </div>
+                <div class="info-content">
+                    <p id="disappeared-bees-value">0 bees<span class="asterisk">*</span></p>
+                    <p class="footnote">*This visualization uses a ratio of 50 particles per colony to represent the average loss of approximately 25,000 bees per colony during CCD. Each particle corresponds to around 500 bees based on this average.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Graph Panel at the bottom -->
+        <div id="graph-panel">
+            <canvas id="line-chart" class="graph-placeholder" width="400" height="200"></canvas>
+            <canvas id="bar-chart" class="graph-placeholder" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <!-- Babylon.js Library from CDN -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom App Script -->
+    <script type="module" src="./app.js"></script>
+</body>
+</html>

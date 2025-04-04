@@ -1,0 +1,30 @@
+# Node.js dependencies
+node_modules/
+.env
+
+# Vite build output
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files and cache
+.DS_Store
+.vscode/
+.idea/
+.cache/
+tmp/
+
+# Operating system files
+Thumbs.db
+Desktop.ini
+
+# Git-specific files
+.git/
+.gitignore~
+
+# LatticeView-specific artifacts
+*.cif.json  
+coverage/   

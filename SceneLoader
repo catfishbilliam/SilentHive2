@@ -1,0 +1,3 @@
+BABYLON.SceneLoader.ImportMesh("", "/assets/", "united_states.obj", scene, function (loadedMeshes) {
+
+});

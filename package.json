@@ -1,0 +1,22 @@
+{
+  "name": "bee-swarm-heatmap",
+  "version": "1.0.0",
+  "description": "A project to visualize colony collapse data using a bee swarm heatmap with Babylon.js and USDA API",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'No build step necessary'"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "MIT"
+}

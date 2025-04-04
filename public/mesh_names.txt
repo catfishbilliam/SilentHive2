@@ -1,0 +1,73 @@
+const stateMeshNames = {
+    "New_York_Cube": "New York",
+    "California_Cube.006": "California",
+    "Texas_Cube.026": "Texas",
+    "Florida_Cube.028": "Florida",
+    "Colorado_Cube.002": "Colorado",
+    "Arizona_Cube.005": "Arizona",
+    "Washington_Cube.009": "Washington",
+    "Oregon_Cube.010": "Oregon",
+    "Alaska_Plane": "Alaska",
+    "Hawaii_Plane.001": "Hawaii",
+    "Wyoming_Cube.007": "Wyoming",
+    "Nevada_Cube.004": "Nevada",
+    "Utah_Cube.003": "Utah",
+    "Montana_Cube.012": "Montana",
+    "Idaho_Cube.011": "Idaho",
+    "North_Dakota_Cube.013": "North Dakota",
+    "South_Dakota_Cube.014": "South Dakota",
+    "Nebraska_Cube.015": "Nebraska",
+    "Kansas_Cube.016": "Kansas",
+    "Oklahoma_Cube.020": "Oklahoma",
+    "Missouri_Cube.021": "Missouri",
+    "Illinois_Cube.022": "Illinois",
+    "Wisconsin_Cube.023": "Wisconsin",
+    "Michigan_Cube.024": "Michigan",
+    "Indiana_Cube.025": "Indiana",
+    "Arkansas_Cube.027": "Arkansas",
+    "Ohio_Cube.029": "Ohio",
+    "Georgia_Cube.036": "Georgia",
+    "South_Carolina_Cube.037": "South Carolina",
+    "North_Carolina_Cube.038": "North Carolina",
+    "Virginia_Cube.039": "Virginia",
+    "Maryland_Cube.040": "Maryland",
+    "Pennsylvania_Cube.042": "Pennsylvania",
+    "New_Jersey_Cube.043": "New Jersey",
+    "Connecticut_Cube.048": "Connecticut",
+    "Tennessee_Cube.034": "Tennessee",
+    "Alabama_Cube.033": "Alabama",
+    "Delaware_Cube.041": "Delaware",
+    "Kentucky_Cube.030": "Kentucky",
+    "Louisiana_Cube.031": "Louisiana",
+    "Maine_Cube.017": "Maine",
+    "Massachusetts_Cube.047": "Massachusetts",
+    "Minnesota_Cube.018": "Minnesota",
+    "New_Hampshire_Cube.044": "New Hampshire",
+    "New_Mexico_Cube.001": "New Mexico",
+    "Rhode_Island_Cube.046": "Rhode Island",
+    "Vermont_Cube.045": "Vermont",
+    "West_Virginia_Cube.035": "West Virginia",
+    "Mississippi_Cube.032": "Mississippi",
+    "Iowa_Cube.019": "Iowa"	
+    };
+
+Parameters:
+
+// Function to fetch colony loss data from the USDA API
+const fetchColonyLossData = async (state, year) => {
+    const baseUrl = 'https://quickstats.nass.usda.gov/api/api_GET/';
+    const params = new URLSearchParams({
+        key: USDA_API_KEY,
+        source_desc: 'SURVEY',
+        sector_desc: 'ANIMALS & PRODUCTS',
+        group_desc: 'SPECIALTY',
+        commodity_desc: 'HONEY',
+        statisticcat_desc: 'LOSS, COLONY COLLAPSE DISORDER',
+        short_desc: 'HONEY, BEE COLONIES - LOSS, COLONY COLLAPSE DISORDER, MEASURED IN COLONIES',
+        domain_desc: 'TOTAL',
+        agg_level_desc: 'STATE',
+        year__GE: '2019',
+        year__LE: '2023',
+        format: 'json'
+    });
+

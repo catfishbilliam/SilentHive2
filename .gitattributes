@@ -1,0 +1,5 @@
+# Set default behavior to handle line endings automatically
+* text=auto
+
+# Handle specific files explicitly if needed
+*.obj binary
