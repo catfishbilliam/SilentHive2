@@ -63,6 +63,8 @@ select option {
     left: 20px;
     max-width: 300px;
     gap: 10px;
+    max-height: calc(100vh - 40px); /* Account for top and bottom margins */
+    overflow-y: auto;
 }
 
 #renderCanvas {
@@ -80,12 +82,16 @@ select option {
     border-radius: 8px;
     z-index: 10;
     cursor: pointer;
-    overflow: hidden;
+    overflow: hidden; /* Control expansion via max-height */
     padding: 10px;
     display: flex;
     flex-direction: column;
-    transition: max-height 0.3s ease; /* Smooth transition */
-    max-height: 50px; /* Initially collapsed */
+    transition: max-height 0.3s ease;
+    max-height: 50px; /* Collapsed state */
+}
+
+.dropdown-container.expanded {
+    max-height: 500px; /* Expanded state */
 }
 
 .header {
@@ -99,7 +105,7 @@ select option {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    overflow: hidden; 
+    overflow-y: auto; 
     margin-top: 10px;
     line-height: 1.5;
 }
@@ -128,11 +134,6 @@ select option {
 /* State Info Container */
 #state-info-container {
     max-height: 50px; /* Initially collapsed height */
-}
-
-/* Expanded Style for Both Containers */
-.dropdown-container.expanded {
-    max-height: 500px; 
 }
 
 #title-info-container, #state-info-container {
