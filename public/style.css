@@ -341,3 +341,11 @@ select option {
     font-size: 14px;
   }
 }
+
+@media (min-width: 769px) {
+  #main-container,
+  #info-wrapper,
+  #graph-panel {
+    position: absolute;
+  }
+}
