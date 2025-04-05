@@ -2,6 +2,43 @@ let lineChart;
 let barChart;
 
 document.addEventListener("DOMContentLoaded", () => {
+    const screenWidth = window.innerWidth;
+
+    // 🚫 Block mobile and tablet users
+    if (screenWidth <= 1024) {
+        document.body.innerHTML = `
+            <div id="mobile-blocker" style="
+                background-color: black;
+                color: white;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 40px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 18px;
+            ">
+                <div>
+                    <h1 style="font-size: 24px; margin-bottom: 20px;">This app is not available on mobile or tablet devices.</h1>
+                    <p>Please visit this page from a desktop browser for the full interactive experience.</p>
+                </div>
+            </div>
+        `;
+        return; // Stop the app from running
+    }
+
+    // ✅ Continue with app initialization (Babylon.js, charts, dropdowns, etc.)
+    
+    const canvas = document.getElementById('renderCanvas');
+    const engine = new BABYLON.Engine(canvas, true);
+    const customLoadingScreen = document.getElementById("customLoadingScreen");
+
+    const infoContainer = document.getElementById("title-info-container");
+    const stateContainer = document.getElementById("state-info-container");
+    const graphPanel = document.getElementById("graph-panel");
+
+    initializeCharts();
     // Initialize Babylon.js scene
     const canvas = document.getElementById('renderCanvas');
     const engine = new BABYLON.Engine(canvas, true);
