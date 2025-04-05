@@ -249,98 +249,49 @@ select option {
 }
 
 @media (max-width: 768px) {
-  html, body {
-    overflow-y: auto;
-    height: auto;
-    font-size: 14px;
-    background: linear-gradient(to bottom, #fff8dc, #fff0b3);
-  }
-
-  #main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  #year-selector
+  #year-selector,
   #info-wrapper {
     order: 1;
     width: 90%;
     max-width: 600px;
-    margin: 10px auto;
-    margin-bottom: 20px;
-    padding: 10px;
+    margin: 20px auto;
+    padding: 16px;
     background: #ffdf00;
-    border-radius: 8px;
+    border-radius: 12px;
     box-sizing: border-box;
     position: relative;
     z-index: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* soft shadow for elevation */
+    border: 2px solid #e6c800; /* give it structure */
+    transition: all 0.3s ease;
   }
 
-  #info-wrapper {
-    order: 2;
-    position: relative;
-    max-height: none;
-    overflow: visible;
-    margin-top: 10px;
-    padding: 0 10px;
-    width: 90%;
-    max-width: 600px;
-    box-sizing: border-box;
+  #year-selector .header,
+  #info-wrapper .header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  #year-selector select,
+  #info-wrapper select {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
   }
 
   .dropdown-container {
-    width: 100%;
-    padding: 10px;
-    background: #ffdf00;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    background: transparent; /* Let the outer panel handle background */
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  #renderCanvas {
-    order: 3;
-    width: 100%;
-    height: 300px;
-    margin: 20px 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  #graph-panel {
-    order: 4;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 90%;
-    max-width: 600px;
-    margin: 20px auto 40px auto;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 8px;
-    box-sizing: border-box;
-    z-index: 2;
-  }
-
-  .graph-placeholder {
-    flex: 1 1 45%;
-    height: 150px;
-    min-width: 140px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #333;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .caret {
-    font-size: 14px;
+  .dropdown-container .info-content {
+    padding-top: 6px;
   }
 }
 
