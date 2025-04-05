@@ -39,18 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const graphPanel = document.getElementById("graph-panel");
 
     initializeCharts();
-    // Initialize Babylon.js scene
-    const canvas = document.getElementById('renderCanvas');
-    const engine = new BABYLON.Engine(canvas, true);
-    const customLoadingScreen = document.getElementById("customLoadingScreen");
-
-    // Get the containers for info, state, and graph
-    const infoContainer = document.getElementById("title-info-container");
-    const stateContainer = document.getElementById("state-info-container");
-    const graphPanel = document.getElementById("graph-panel");
-
- // Initialize charts using the correct function names
-    initializeCharts();
 
 
     function toggleDropdown(container) {
