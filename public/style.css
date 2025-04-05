@@ -252,7 +252,7 @@ select option {
     overflow-y: auto;
     height: auto;
     font-size: 14px;
-    background: linear-gradient(to bottom, #fff8dc, #fff0b3); /* Warm aesthetic */
+    background: linear-gradient(to bottom, #fff8dc, #fff0b3);
   }
 
   #main-container {
@@ -261,33 +261,26 @@ select option {
     align-items: center;
     width: 100%;
     height: auto;
-    background: transparent;
-    position: relative;
-    z-index: 0;
+  }
+
+  #year-selector,
+  #info-wrapper {
+    width: 90%;
+    max-width: 600px;
+    margin: 10px auto;
+    box-sizing: border-box;
   }
 
   #year-selector {
     order: 1;
-    width: 90%;
-    max-width: 600px;
-    margin: 10px auto;
     padding: 10px;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 2;
     background: #ffdf00;
     border-radius: 8px;
   }
 
   #info-wrapper {
     order: 2;
-    width: 90%;
-    max-width: 600px;
-    margin: 0 auto 20px auto;
     padding: 0 10px;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 2;
   }
 
   .dropdown-container {
@@ -298,53 +291,33 @@ select option {
     margin-bottom: 10px;
   }
 
-  .dropdown-container .title,
-  .dropdown-container h2 {
-    font-size: 16px;
-  }
-
-  .dropdown-container .info-content {
-    font-size: 14px;
-  }
-
   #renderCanvas {
     order: 3;
     width: 100%;
     height: 300px;
-    position: relative;
     margin: 20px 0;
+    position: relative;
     z-index: 1;
   }
 
-  /* NEW: Place charts in their own container below the canvas */
+  /* --- TRICK: Move #graph-panel visually into the flow on mobile --- */
   #graph-panel {
     order: 4;
     width: 90%;
     max-width: 600px;
     margin: 0 auto 40px auto;
     padding: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 8px;
-    box-sizing: border-box;
     z-index: 2;
-  }
 
-  .graph-placeholder {
-    width: 100%;
-    height: 150px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-  }
-
-  .caret {
-    font-size: 14px;
+    /* 👇 Only active on mobile: place it *after* canvas visually */
+    position: relative;
+    top: auto;
+    left: auto;
   }
 }
 
