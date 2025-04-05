@@ -213,6 +213,7 @@ select option {
     flex-direction: column; /* Stack children vertically */
     margin-top: 10px; /* Add some space between header and content */
     padding-top: 5px;
+}
 
 .asterisk {
     font-size: 0.8em;
@@ -252,7 +253,7 @@ select option {
     overflow-y: auto;
     height: auto;
     font-size: 14px;
-    background: linear-gradient(to bottom, #fff8dc, #fff0b3); /* Warm fade */
+    background: linear-gradient(to bottom, #fff8dc, #fff0b3);
   }
 
   #main-container {
@@ -265,7 +266,6 @@ select option {
     z-index: 1;
   }
 
-  /* Center and style the year selector */
   #year-selector {
     order: 1;
     width: 90%;
@@ -279,26 +279,15 @@ select option {
     z-index: 2;
   }
 
-  #year-selector .header {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  #year-selector select,
-  #year-selector label {
-    font-size: 14px;
-    margin: 5px 0;
-    width: 100%;
-  }
-
-  /* Stack and align all dropdown panels */
   #info-wrapper {
     order: 2;
+    position: relative;
+    max-height: none;
+    overflow: visible;
+    margin-top: 10px;
+    padding: 0 10px;
     width: 90%;
     max-width: 600px;
-    margin: 0 auto 10px auto;
-    padding: 0 10px;
     box-sizing: border-box;
   }
 
@@ -310,21 +299,6 @@ select option {
     margin-bottom: 10px;
   }
 
-  .dropdown-container .title,
-  .dropdown-container h2 {
-    font-size: 16px;
-    margin: 0;
-  }
-
-  .dropdown-container .info-content {
-    font-size: 14px;
-  }
-
-  .caret {
-    font-size: 14px;
-  }
-
-  /* Babylon canvas section */
   #renderCanvas {
     order: 3;
     width: 100%;
@@ -334,29 +308,27 @@ select option {
     z-index: 1;
   }
 
-  /* VISUALLY stack the graph panel below the canvas */
   #graph-panel {
     order: 4;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
     width: 90%;
     max-width: 600px;
-    margin: 0 auto 40px auto;
+    margin: 20px auto 40px auto;
     padding: 10px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    box-sizing: border-box;
     z-index: 2;
-
-    /* Force it into the visual flow on mobile */
-    position: relative;
-    top: auto;
-    left: auto;
   }
 
   .graph-placeholder {
-    width: 100%;
+    flex: 1 1 45%;
     height: 150px;
+    min-width: 140px;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid #333;
     border-radius: 4px;
@@ -364,5 +336,8 @@ select option {
     align-items: center;
     justify-content: center;
   }
-}
 
+  .caret {
+    font-size: 14px;
+  }
+}
