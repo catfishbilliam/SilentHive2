@@ -248,57 +248,98 @@ select option {
 }
 
 @media (max-width: 768px) {
-  /* Allow vertical scrolling */
-  body, html {
+  html, body {
     overflow-y: auto;
+    height: auto;
+    font-size: 14px;
   }
 
-  /* Use flexbox on the main container with vertical stacking */
   #main-container {
     display: flex;
     flex-direction: column;
-    position: relative;
     height: auto;
+    position: relative;
   }
 
-  /* 
-    Set the order for the top info containers. 
-    They will stack in document order if they share the same order value.
-  */
-  #year-selector,
-  #info-wrapper {
+  /* Year and state selector */
+  #year-selector {
     order: 1;
     width: 100%;
+    margin: 8px 0;
+    padding: 8px;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  #year-selector select,
+  #year-selector label {
+    font-size: 14px;
+  }
+
+  /* Info containers stacked */
+  #info-wrapper {
+    order: 2;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  /* Center the canvas in the middle with its own order */
-  #renderCanvas {
-    order: 2;
+    gap: 8px;
     width: 100%;
-    height: 300px; /* Adjust height as needed */
-    margin: 10px 0;
+    padding: 8px;
+    box-sizing: border-box;
+    position: relative;
+    max-height: none;
+    overflow: visible;
   }
 
-  /* Place the charts at the bottom and stack them vertically */
-  #graph-panel {
+  .dropdown-container {
+    width: 100%;
+    max-height: none;
+    padding: 8px;
+  }
+
+  .dropdown-container .title,
+  .dropdown-container h2 {
+    font-size: 16px;
+  }
+
+  .dropdown-container .info-content {
+    font-size: 14px;
+  }
+
+  /* Render canvas centered in layout */
+  #renderCanvas {
     order: 3;
     width: 100%;
+    height: 250px;
+    position: relative;
+    margin: 10px 0;
+    z-index: 0;
+  }
+
+  /* Graph panel at bottom, charts stacked vertically */
+  #graph-panel {
+    order: 4;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
     padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
     box-sizing: border-box;
   }
 
-  /* Adjust individual chart sizes */
   .graph-placeholder {
     width: 100%;
-    height: 150px; /* Reduced height for mobile */
+    height: 150px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Adjust caret size for smaller screens */
+  .caret {
+    font-size: 14px;
   }
 }
 
