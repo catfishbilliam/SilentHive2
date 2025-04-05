@@ -248,12 +248,12 @@ select option {
 }
 
 @media (max-width: 768px) {
-  /* Allow scrolling on smaller screens */
+  /* Allow vertical scrolling */
   body, html {
-    overflow: auto;
+    overflow-y: auto;
   }
 
-  /* Main container switches to a vertical layout */
+  /* Main container now flows vertically */
   #main-container {
     display: flex;
     flex-direction: column;
@@ -261,44 +261,38 @@ select option {
     height: auto;
   }
 
-  /* Position the info wrapper and year selector normally, with margins for spacing */
+  /* Containers at the top */
   #info-wrapper,
   #year-selector {
     position: relative;
-    top: 0;
-    left: 0;
-    max-width: 100%;
-    margin: 10px;
-  }
-
-  /* Expand dropdown containers to full width */
-  .dropdown-container {
     width: 100%;
-    margin-bottom: 10px;
+    margin: 10px auto;
   }
 
-  /* Adjust the render canvas so it doesn't cover content */
+  /* Canvas centered in the middle */
   #renderCanvas {
     position: relative;
     width: 100%;
-    height: 300px; /* Set a fixed or responsive height as needed */
+    height: 300px; /* Adjust the canvas height as needed */
+    margin: 10px 0;
   }
 
-  /* Stack graph panels vertically and adjust height */
+  /* Graph panel at the bottom with charts stacked vertically */
   #graph-panel {
     position: relative;
-    bottom: 0;
     width: 100%;
-    height: auto;
+    display: flex;
     flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
     padding: 10px;
     box-sizing: border-box;
   }
 
-  /* Optionally, adjust individual graph placeholders to be full-width */
+  /* Adjust individual charts so they don't become too tall */
   .graph-placeholder {
-    max-width: 100%;
-    margin-bottom: 10px;
+    width: 100%;
+    height: 150px; /* Reduced height for a better mobile view */
   }
 }
 
