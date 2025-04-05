@@ -266,17 +266,19 @@ select option {
     z-index: 1;
   }
 
-  #year-selector {
+  #year-selector
+  #info-wrapper {
     order: 1;
     width: 90%;
     max-width: 600px;
     margin: 10px auto;
+    margin-bottom: 20px;
     padding: 10px;
     background: #ffdf00;
     border-radius: 8px;
     box-sizing: border-box;
     position: relative;
-    z-index: 2;
+    z-index: auto;
   }
 
   #info-wrapper {
