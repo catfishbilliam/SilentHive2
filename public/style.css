@@ -252,7 +252,7 @@ select option {
     overflow-y: auto;
     height: auto;
     font-size: 14px;
-    background: linear-gradient(to bottom, #fff8dc, #fff0b3);
+    background: linear-gradient(to bottom, #fff8dc, #fff0b3); /* Warm fade */
   }
 
   #main-container {
@@ -261,26 +261,45 @@ select option {
     align-items: center;
     width: 100%;
     height: auto;
+    position: relative;
+    z-index: 1;
   }
 
-  #year-selector,
-  #info-wrapper {
+  /* Center and style the year selector */
+  #year-selector {
+    order: 1;
     width: 90%;
     max-width: 600px;
     margin: 10px auto;
-    box-sizing: border-box;
-  }
-
-  #year-selector {
-    order: 1;
     padding: 10px;
     background: #ffdf00;
     border-radius: 8px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
   }
 
+  #year-selector .header {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  #year-selector select,
+  #year-selector label {
+    font-size: 14px;
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  /* Stack and align all dropdown panels */
   #info-wrapper {
     order: 2;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto 10px auto;
     padding: 0 10px;
+    box-sizing: border-box;
   }
 
   .dropdown-container {
@@ -291,6 +310,21 @@ select option {
     margin-bottom: 10px;
   }
 
+  .dropdown-container .title,
+  .dropdown-container h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .dropdown-container .info-content {
+    font-size: 14px;
+  }
+
+  .caret {
+    font-size: 14px;
+  }
+
+  /* Babylon canvas section */
   #renderCanvas {
     order: 3;
     width: 100%;
@@ -300,7 +334,7 @@ select option {
     z-index: 1;
   }
 
-  /* --- TRICK: Move #graph-panel visually into the flow on mobile --- */
+  /* VISUALLY stack the graph panel below the canvas */
   #graph-panel {
     order: 4;
     width: 90%;
@@ -314,10 +348,21 @@ select option {
     gap: 10px;
     z-index: 2;
 
-    /* 👇 Only active on mobile: place it *after* canvas visually */
+    /* Force it into the visual flow on mobile */
     position: relative;
     top: auto;
     left: auto;
+  }
+
+  .graph-placeholder {
+    width: 100%;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #333;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
